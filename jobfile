@@ -1,0 +1,14 @@
+jobs:
+  DailyGooglePhotoSync:
+    cmd: /usr/local/bin/gphotos-sync /gphotos-storage
+    time: 0 0 13
+    onError: Stop
+    notifyOnFailure:
+      - *standardOutput
+
+resultSinks:
+  - &standardOutput
+    type: stdout
+    data:
+      - stdout
+      - stderr
